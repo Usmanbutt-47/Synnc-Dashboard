@@ -15,12 +15,12 @@ export default function Header() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
+                                {/* <li className="nav-item">
                                     <a className="nav-link active" aria-current="page" href="#">Rankings</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">Creators</a>
-                                </li>
+                                </li> */}
                                 {/* <li className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         Dropdown
@@ -35,7 +35,7 @@ export default function Header() {
                             </ul>
                             <form className="d-flex" role="search">
                                 <button className="btn btn-sm btn-outline-primary me-2" type="submit">Sign in</button>
-                                <button className="btn btn-sm btn-primary" type="submit">Register</button>
+                                {/* <button className="btn btn-sm btn-primary" type="submit">Register</button> */}
                             </form>
                         </div>
                     </div>

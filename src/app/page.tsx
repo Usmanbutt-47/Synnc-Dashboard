@@ -7,5 +7,6 @@ import Homepage from "./homepage/page";
 export default function Mainpage() {
   return (
     <Homepage />
+    // <></>
   );
 }
