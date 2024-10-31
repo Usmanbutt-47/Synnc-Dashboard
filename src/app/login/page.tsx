@@ -48,7 +48,7 @@ const Login = () => {
             setLoader(false);
             if (response?.data) {
                 router.push('homepage')
-                localStorage.setItem('user',response?.data)
+                localStorage.setItem('user',JSON.stringify(response?.data))
             }
         } catch (error: any) { // Catch any error that might occur during login
             console.error("Login error:", error);
