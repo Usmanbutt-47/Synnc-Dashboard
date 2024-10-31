@@ -1,19 +1,23 @@
 "use client";
 
 import { fetch_dashboard_data } from "@/@api";
+import withAuth from "@/components/withAuth";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-export default function Homepage() {
+// import { useRouter } from "next/navigation";
+function Homepage() {
 
     const [users, setUsers] = useState<any[]>([]);
+    // const router = useRouter()
     useEffect(() => {
 
         fetchData()
 
     }, [])
+
+
     const fetchData = async () => {
         const response = await fetch_dashboard_data()
         console.log(response.data)
@@ -413,3 +417,5 @@ export default function Homepage() {
         </>
     );
 }
+
+export default withAuth(Homepage)

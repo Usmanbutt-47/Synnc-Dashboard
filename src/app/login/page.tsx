@@ -3,6 +3,7 @@ import { login } from '@/@api';
 import useForm from '@/hooks/useForm';
 import React, {useState} from 'react'
 import Image from "next/image";
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
     // const { login: authLogin, isAuthenticated } = useAuth(); // Use login function from AuthContext
@@ -12,7 +13,7 @@ const Login = () => {
     const [loader, setLoader] = useState(false);
     const [loginError, setLoginError] = useState<string | null>(null); // State to handle login errors
     const [linkedInError, setLinkedInError] = useState<string | null>(null); // State for LinkedIn sign-in errors
-
+    const router = useRouter()
     // Form initial values and validation
     const initialValues = { email: '', password: '' };
 
@@ -46,9 +47,8 @@ const Login = () => {
             const response = await login(values); // Perform login (assumed you get user data on success)
             setLoader(false);
             if (response?.data) {
-                // authLogin(response.data);
-                // if (isLinkedIn) // Store the user in AuthContext
-                    // navigate('/home');
+                router.push('homepage')
+                localStorage.setItem('user',response?.data)
             }
         } catch (error: any) { // Catch any error that might occur during login
             console.error("Login error:", error);
