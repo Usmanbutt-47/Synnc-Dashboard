@@ -47,14 +47,8 @@ const Login = () => {
             const response = await login(values); // Perform login (assumed you get user data on success)
             setLoader(false);
             if (response?.data) {
-<<<<<<< HEAD
                 router.push('homepage')
                 localStorage.setItem('user',response?.data)
-=======
-                // authLogin(response.data);
-                // if (isLinkedIn) // Store the user in AuthContext
-                // navigate('/home');
->>>>>>> c8436aed5f26846b9923da0a37a2779e2d2601dd
             }
         } catch (error: any) { // Catch any error that might occur during login
             console.error("Login error:", error);
