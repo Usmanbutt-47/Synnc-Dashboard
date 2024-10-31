@@ -1,7 +1,7 @@
 "use client"
 import { login } from '@/@api';
 import useForm from '@/hooks/useForm';
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
@@ -47,8 +47,14 @@ const Login = () => {
             const response = await login(values); // Perform login (assumed you get user data on success)
             setLoader(false);
             if (response?.data) {
+<<<<<<< HEAD
                 router.push('homepage')
                 localStorage.setItem('user',response?.data)
+=======
+                // authLogin(response.data);
+                // if (isLinkedIn) // Store the user in AuthContext
+                // navigate('/home');
+>>>>>>> c8436aed5f26846b9923da0a37a2779e2d2601dd
             }
         } catch (error: any) { // Catch any error that might occur during login
             console.error("Login error:", error);
@@ -63,44 +69,52 @@ const Login = () => {
 
     return (
         <div className='container-fluid'>
-                <div className='row py-5'>
-                    <div className='col-12'>
+            <div className='row py-5'>
+                <div className='col-12'>
                     {/* <Image src="/assets/images/logo.png" alt="logo" width={100} height={30} className="img-fluid" /> */}
-                    <h5 className='mb-4 text-center'>Login to Synnc</h5>
-                        {loginError && <div className="alert alert-danger">{loginError}</div>} {/* Show login error */}
-                        <form onSubmit={(e) => handleSubmit(e, handleLogin)}>
-                            <div className="mb-3 text-start">
-                                <label htmlFor="email" className="form-label">Email address</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className={`form-control form-control-sm ${errors.email ? 'is-invalid' : ''}`}
-                                    id="email"
-                                    placeholder="name@example.com"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                />
-                                {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                    <div className='row'>
+                        <div className='col-sm-8 col-md-6 col-xl-4 mx-auto'>
+                            <div className='card'>
+                                <div className='card-body'>
+                                    <h5 className='mb-4 text-center'>Login to Synnc</h5>
+                                    {loginError && <div className="alert alert-danger">{loginError}</div>} {/* Show login error */}
+                                    <form onSubmit={(e) => handleSubmit(e, handleLogin)}>
+                                        <div className="mb-3 text-start">
+                                            <label htmlFor="email" className="form-label">Email address</label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                className={`form-control form-control-sm ${errors.email ? 'is-invalid' : ''}`}
+                                                id="email"
+                                                placeholder="name@example.com"
+                                                value={values.email}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                                        </div>
+                                        <div className="mb-3 text-start">
+                                            <label htmlFor="password" className="form-label">Password</label>
+                                            <input
+                                                type="password"
+                                                name="password"
+                                                className={`form-control form-control-sm ${errors.password ? 'is-invalid' : ''}`}
+                                                id="password"
+                                                placeholder="password"
+                                                value={values.password}
+                                                onChange={handleChange}
+                                            />
+                                            {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                                        </div>
+                                        <button type="submit" className="btn btn-primary btn-sm w-100 mb-3" disabled={loader}>
+                                            {loader ? "Logging in..." : "Login"}
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            <div className="mb-3 text-start">
-                                <label htmlFor="password" className="form-label">Password</label>
-                                <input
-                                    type="password"
-                                    name="password"
-                                    className={`form-control form-control-sm ${errors.password ? 'is-invalid' : ''}`}
-                                    id="password"
-                                    placeholder="password"
-                                    value={values.password}
-                                    onChange={handleChange}
-                                />
-                                {errors.password && <div className="invalid-feedback">{errors.password}</div>}
-                            </div>
-                            <button type="submit" className="btn btn-primary btn-sm w-100 mb-3" disabled={loader}>
-                                {loader ? "Logging in..." : "Login"}
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
+            </div>
 
             {loader && (<div className="spinner-border text-primary d-flex mx-auto mb-5" role="status">
                 <span className="visually-hidden">Loading...</span>

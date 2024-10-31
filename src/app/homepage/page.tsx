@@ -107,7 +107,7 @@ function Homepage() {
                                     <table className="table align-middle text-center mb-0">
                                         <thead>
                                             <tr>
-                                                <th scope="col">Campaign Creators</th>
+                                                <th scope="col" className="text-start ps-4">Campaign Creators</th>
                                                 <th scope="col">Social Platform</th>
                                                 <th scope="col">Followers</th>
                                                 <th scope="col">Impressions</th>
@@ -120,8 +120,8 @@ function Homepage() {
                                         <tbody>
                                             {Array.isArray(users) && users?.map((user: any) => (
                                                 <tr key={user._id}>
-                                                    <td>
-                                                        <div className="d-flex align-items-center justify-content-center">
+                                                    <td className="text-start ps-4">
+                                                        <div className="d-flex align-items-center">
                                                             <img src={user.Profile_Image} alt={user.Name} width={30} height={30} className="user-img img-fluid" />
                                                             <span className="ms-2 fw-medium">{user.Name}</span>
                                                         </div>
